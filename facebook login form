@@ -1,0 +1,43 @@
+import tkinter as tk
+from tkinter import messagebox
+
+# Function to handle login
+def login():
+    username = entry_username.get()
+    password = entry_password.get()
+
+    # Hardcoded credentials for demonstration
+    correct_username = "user123"
+    correct_password = "password123"
+
+    if username == correct_username and password == correct_password:
+        messagebox.showinfo("Login Successful", "You have logged in successfully!")
+    else:
+        messagebox.showerror("Login Failed", "Invalid username or password. Please try again.")
+
+# Create the main window
+root = tk.Tk()
+root.title("Facebook Login")
+
+# Set window size
+root.geometry("400x300")
+
+# Create UI components
+label_username = tk.Label(root, text="Username:")
+label_username.grid(row=0, column=0, padx=10, pady=10)
+
+entry_username = tk.Entry(root, width=40)
+entry_username.grid(row=0, column=1, padx=10, pady=10)
+
+label_password = tk.Label(root, text="Password:")
+label_password.grid(row=1, column=0, padx=10, pady=10)
+
+entry_password = tk.Entry(root, width=40, show="*")  # 'show' hides the input text
+entry_password.grid(row=1, column=1, padx=10, pady=10)
+
+# Login button
+login_button = tk.Button(root, text="Login", command=login)
+login_button.grid(row=2, column=0, columnspan=2, pady=20)
+
+# Run the Tkinter event loop
+root.mainloop()
